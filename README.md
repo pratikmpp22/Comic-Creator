@@ -32,4 +32,9 @@ This is a simple web application that allows users to create and share a 10-pane
    Open your web browser and navigate to [http://localhost:5000](http://127.0.0.1:5000)
 
    
+## License
+This project is licensed under the [MIT License](LICENSE).
 
+
+## Contact
+For questions or feedback, feel free to [email me](mailto:patilmpratik456@gmail.com).
