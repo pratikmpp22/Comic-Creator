@@ -9,4 +9,9 @@ This is a simple web application that allows users to create and share a 10-pane
    ```bash
    git clone https://github.com/pratikmpp22/Comic-Creator.git
 
-   
+2. **Install Dependencies:**
+```bash
+pip install -r requirements.txt
+
+3. **Run the Application:**
+ 
