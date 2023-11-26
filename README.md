@@ -7,11 +7,16 @@ This is a simple web application that allows users to create and share a 10-pane
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/pratikmpp22/Comic-Creator.git
-
+   git clone https://github.com/pratikmpp22/Comic-Creator.git  
+  
 2. **Install Dependencies:**
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt  ```
 
 3. **Run the Application:**
- 
+```bash
+   python app.py
+
+4. **Access the Application:** Open your web browser and navigate to [http://localhost:5000](http://127.0.0.1:5000)http://127.0.0.1:5000
+
+
