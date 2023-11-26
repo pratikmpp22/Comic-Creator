@@ -14,8 +14,10 @@ This is a simple web application that allows users to create and share a 10-pane
    ```bash
    # Create a virtual environment (optional but recommended)
    python -m venv venv
+   
    # Activate the virtual environment (for Windows)
    .\venv\Scripts\activate
+   
    # Activate the virtual environment (for Unix or MacOS)
    source venv/bin/activate
 
