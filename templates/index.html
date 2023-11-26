@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Comic Creator</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #FFB6C1, #87CEEB);
+            text-align: center;
+            color: #333;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 36px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            grid-column: span 2;
+            margin-bottom: 3px;
+        }
+
+        p {
+            font-size: 25px;
+            margin-bottom: 3px;
+            grid-column: span 2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            background: linear-gradient(45deg, rgba(255, 182, 193, 0), rgba(135, 206, 235, 0));
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .loading {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .column {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            text-align: center;
+            margin-left: 160px;
+        }
+
+        label {
+            font-size: 18px;
+            margin-bottom: 3px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .column input {
+            width: 500px;
+            padding: 10px;
+            margin-bottom: 25px;
+            font-size: 16px;
+            border: 1.5px solid #333;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: rgba(255, 182, 193, 0);
+        }
+
+        button {
+            background-color: transparent;
+            color: #333;
+            border: 2px solid #333;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            grid-column: span 2;
+            margin-left: 626px;
+            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: rgba(87, 183, 116, 0.5);
+        }
+
+        #loadingMessage {
+            display: none;
+            font-size: 15px;
+            color: #333;
+            margin-top: 5px;
+            margin-left: 300px;
+            width: 800px;
+        }
+    </style>
+    
+    <script>
+        function setLoadingState() {
+            document.getElementById('loadingMessage').style.display = 'block';
+            let button = document.getElementById('generateButton');
+            button.innerHTML = '<i class="fa fa-refresh fa-spin"></i> Generating';
+            button.classList.add('loading');
+            button.style.backgroundColor = 'rgba(87, 183, 116, 0.5)';
+            button.disabled = true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Comic Creator</h1>
+    <p>Craft your comic magic in 10 frames!</p>
+    <form action="/generate_comic" method="post" onsubmit="setLoadingState();">
+        <div class="column">
+            <div class="left">
+                {% for i in range(1, 6) %}
+                    <label for="panel{{ i }}">Frame {{ i }}</label>
+                    <input type="text" name="panel{{ i }}" required>
+                {% endfor %}
+            </div>
+            <div class="right">
+                {% for i in range(6, 11) %}
+                    <label for="panel{{ i }}">Frame {{ i }}</label>
+                    <input type="text" name="panel{{ i }}" required>
+                {% endfor %}
+            </div>
+        </div>
+        <button type="submit" id="generateButton">Generate Comic</button>
+        <div id="loadingMessage">Generating your comic magic! This may take a few minutes, please wait...</div>
+    </form>
+</body>
+</html>
